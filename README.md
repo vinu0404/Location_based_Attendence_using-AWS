@@ -19,3 +19,6 @@ Storenotify360 is a project that aims to provide customers with notifications ab
 - **AWS SNS (Simple Notification Service)**: Responsible for sending notifications to subscribed customers when they enter the geofencing region.
 
   By leveraging these AWS services, Storenotify360 provides a seamless way for customers to receive timely notifications about sales and discounts when they are in the vicinity of a store, enhancing their shopping experience and increasing engagement with the store's offerings.
+  
+  Architecture of Model:
+![aws](https://github.com/vinu0404/StoreNotify360/assets/146422870/b985ace2-1bb8-4d2c-b8f1-4818d388addb)
