@@ -1,0 +1,16 @@
+Go to the location services and create a geofence collection. Then add any geo.json file as geofences. This should create 5 geofences inside the collection.
+Make sure that you enable the eventbridge + cloudwatch integration
+
+Go again to the Role and add one more inline policy
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "geo:BatchEvaluateGeofences",
+            "Resource": "arn:aws:geo:<REGION>:<ACCOUNTNUMBER>:geofence-collection/<YOUR GEOFENCE COLLECTION>"
+        }
+    ]
+}
+Name anything you want for the role, eg. geofence
+Now our model is ready if we integrate with any store app ,coustmers will get notification about sales and discounts.
