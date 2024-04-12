@@ -12,5 +12,34 @@ Go again to the Role and add one more inline policy
         }
     ]
 }
+-------------------------------------------
+for lambda function :
+import json
+import boto3
+
+sns = boto3.client('sns')
+
+def lambda_handler(event, context):
+    # Check if the event is an enter or exit event
+    if event['detail']['EventType'] == 'ENTER':
+        # Trigger SNS to send email
+        response = sns.publish(
+            TopicArn='sns-topic-arn',    
+            Message='Tracker has entered the geofence',
+            Subject='Geofence Alert'
+        )
+    elif event['detail']['EventType'] == 'EXIT':
+        # Trigger SNS to send email
+        response = sns.publish(
+            TopicArn='sns-topic-arn',    
+            Message='Tracker has exited the geofence',
+            Subject='Geofence Alert'
+        )
+
+    return {
+        'statusCode': 200,
+        'body': json.dumps('Lambda function executed successfully!')
+    }
+--------------------------------------------------
 Name anything you want for the role, eg. geofence
 Now our model is ready if we integrate with any store app ,coustmers will get notification about sales and discounts.
